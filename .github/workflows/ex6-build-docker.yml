@@ -69,6 +69,11 @@ jobs:
     steps:
         - name: checkout
           uses: actions/checkout@v4
-        - name: Build Docker Image
+          
+        - name: Pull Docker Image
           run: |
-            docker build -t nginx_base .
+            docker pull docker/whalesay
+    
+        - name: Run Docker Container
+          run: |
+            docker run --name whalesay_container docker/whalesay cowsay "Hello, GitHub Actions!"
