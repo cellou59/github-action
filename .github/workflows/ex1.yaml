@@ -5,12 +5,16 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      vitest-path: ${{ steps.set-output.outputs.path }} 
     steps: 
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - run: npm install
+      - id: set-output
+        run: $GITHUB_ENV 
   job2:
     needs: job1
     runs-on: ubuntu-latest
@@ -20,4 +24,8 @@ jobs:
         with:
           node-version: lts/*
       - run: npm test
+      - name: Show Output
+        run: echo "Path is ${{ needs.job1.outputs.vitest-path }}" 
+
+      
 
