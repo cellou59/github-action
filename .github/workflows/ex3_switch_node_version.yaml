@@ -27,8 +27,6 @@ jobs:
           node -v
 
       - name: Create Fake Issue using Curl
-        env:
-     
         run: |
           curl -L \
             -X POST \
