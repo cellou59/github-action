@@ -69,5 +69,6 @@ jobs:
     steps:
         - name: checkout
           uses: actions/checkout@v4
-        - run: |
-            docker build -t ${{ github.sha }} .
+        - name: Build Docker Image
+          run: |
+            docker build -t nginx_base .
