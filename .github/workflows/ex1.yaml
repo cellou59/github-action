@@ -16,17 +16,6 @@ jobs:
         shell: bash
         run: |
           npm install
-
-  run-test:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-      - name : setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
       - name: run test
         shell: bash
         run: |
