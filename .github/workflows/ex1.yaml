@@ -12,11 +12,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-      - name: run test
+      - name: run install
         shell: bash
         run: |
-          npm install
-      - name: run test
-        shell: bash
-        run: |
+          npm install 
           npm test
