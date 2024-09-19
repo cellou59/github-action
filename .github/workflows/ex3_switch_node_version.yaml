@@ -1,21 +1,23 @@
-env: 
-  NODE_VERSION : '20'
 name: Switch Node version
 on: 
   pull_request:
+
+env:
+  NODE_VERSION: '20'  #
 
 jobs:
   run-npm-test:
     runs-on: ubuntu-latest
     steps:
-        - name: checkout
-          uses: actions/checkout@v4
-        - name : setup node
-          uses: actions/setup-node@v4
-          with:
-            node-version: '$NODE_VERSION'
-        - name: run version
-          shell: bash
-          run: |
-            node -v
-          
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Run Node Version
+        shell: bash
+        run: |
+          node -v
