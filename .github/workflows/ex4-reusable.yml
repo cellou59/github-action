@@ -1,4 +1,4 @@
-name: reusable workflow
+name: npm test
 on: 
   workflow_dispatch:
 
